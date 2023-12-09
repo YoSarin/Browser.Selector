@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34321.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Browser.Selector.Cli", "Browser.Selector.Cli\Browser.Selector.Cli.csproj", "{DCC006BF-3D9E-443F-A117-03B59C6F67B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3} = {9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Browser.Selector.Lib", "Browser.Selector.Lib\Browser.Selector.Lib.csproj", "{9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCC006BF-3D9E-443F-A117-03B59C6F67B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCC006BF-3D9E-443F-A117-03B59C6F67B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCC006BF-3D9E-443F-A117-03B59C6F67B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCC006BF-3D9E-443F-A117-03B59C6F67B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2A2A79-6200-4F92-8D17-BC5E8EF71FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B0B3884-E226-4242-8C9E-8053DA541FB4}
+	EndGlobalSection
+EndGlobal
