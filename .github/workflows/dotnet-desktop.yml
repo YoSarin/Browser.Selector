@@ -45,7 +45,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:  
+  build:
+    permissions:
+      contents: write
+      discussions: write  
     strategy:
       fail-fast: false
       matrix:
