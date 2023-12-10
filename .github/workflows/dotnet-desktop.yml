@@ -90,7 +90,7 @@ jobs:
       run: dotnet build $env:ProjectPath -c $env:Configuration -f $env:TargetFramework
 
     - name: 'Zip files'
-      run: 7z a -tzip -r ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}\
+      run: 7z a -tzip -r ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}\*
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
