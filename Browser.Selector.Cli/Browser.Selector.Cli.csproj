@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <!-- net8.0-windows is required when using .net 8 - unfortunatelly that breaks links opening from OneNote -->
-    <!--<TargetFrameworks>netcoreapp3.1;net8.0-windows</TargetFrameworks>-->
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net8.0-windows</TargetFrameworks>
+    <!--<TargetFramework>netcoreapp3.1</TargetFramework>-->
     <ApplicationIcon>app.ico</ApplicationIcon>
     <StartupObject>Browser.Selector.Cli.Program</StartupObject>
     <UseWindowsForms>True</UseWindowsForms>
