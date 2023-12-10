@@ -40,15 +40,14 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "main" ]
+    tags: [ "release/**" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-
+  build:  
     strategy:
+      fail-fast: false
       matrix:
         configuration: [Debug, Release]
         targetFramework: [netcoreapp3.1, net8.0-windows]
@@ -122,7 +121,7 @@ jobs:
     
    # release
     - name: Release with Notes
-      if: ${{ matrix.configuration == 'Release' }}
+      if: ${{ matrix.configuration == 'Release' && startsWith(github.ref, 'refs/tags/dev-') }}
       uses: softprops/action-gh-release@v1
       with:
         files: ${{ env.Wap_Project_Directory }}\AppPackages
