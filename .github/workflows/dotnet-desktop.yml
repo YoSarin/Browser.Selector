@@ -97,6 +97,7 @@ jobs:
       if: ${{ startsWith(github.ref, 'refs/tags/release') }}
       uses: softprops/action-gh-release@v1
       with:
-        files: ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}
+        files: |
+          ${{ env.ProjectDirectory }}/bin/${{ env.Configuration }}/${{ env.TargetFramework }}/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
