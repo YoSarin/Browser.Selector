@@ -45,7 +45,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:  
+  build:
+    permissions:
+      contents: write
+      discussions: write  
     strategy:
       fail-fast: false
       matrix:
@@ -86,17 +89,21 @@ jobs:
     - name: Build the Browser.Selector
       run: dotnet build $env:ProjectPath -c $env:Configuration -f $env:TargetFramework
 
+    - name: 'Zip files'
+      run: 7z a ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip -r .\${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}\*
+
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}
-        path: ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}
+        path: ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip
     
    # release
     - name: Release with Notes
       if: ${{ startsWith(github.ref, 'refs/tags/release') }}
       uses: softprops/action-gh-release@v1
       with:
-        files: ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}
+        files: |
+          ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
