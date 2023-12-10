@@ -117,3 +117,12 @@ jobs:
       with:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\AppPackages
+    
+   # release
+    - name: Release with Notes
+      if: github.ref == 'refs/heads/master'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ${{ env.Wap_Project_Directory }}\AppPackages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
