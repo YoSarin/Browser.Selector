@@ -89,14 +89,14 @@ jobs:
     - name: Build the Browser.Selector
       run: dotnet build $env:ProjectPath -c $env:Configuration -f $env:TargetFramework
 
-    - name: 'Tar files'
-      run: tar -cvf ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.tar ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}
+    - name: 'Zip files'
+      run: zip -r -q ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip ${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}
-        path: ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.tar
+        path: ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip
     
    # release
     - name: Release with Notes
@@ -104,6 +104,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.tar
+          ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
