@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Browser.Selector.Cli\Browser.Selector.Cli.csproj">
+      <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
       <TrustLevel>Full</TrustLevel>
       <PublishProfile Condition="'$(Configuration)|$(Platform)'=='Release|x86'">Properties\PublishProfiles\SelfContainedWin86.pubxml</PublishProfile>
       <PublishProfile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Properties\PublishProfiles\SelfContainedWin64.pubxml</PublishProfile>
