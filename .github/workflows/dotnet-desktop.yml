@@ -62,7 +62,6 @@ jobs:
       ProjectName: Browser.Selector
       SolutionName: Browser.Selector.Cli.sln
       ProjectDirectory: Browser.Selector.Cli
-      ProjectPath: Browser.Selector.Cli\Browser.Selector.Cli.csproj
       Configuration: ${{ matrix.configuration }}
       TargetFramework: ${{ matrix.targetFramework }}
 
@@ -84,10 +83,10 @@ jobs:
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: dotnet restore $env:ProjectPath
+      run: dotnet restore
 
     - name: Build the Browser.Selector
-      run: dotnet build $env:ProjectPath -c $env:Configuration -f $env:TargetFramework
+      run: dotnet build -c $env:Configuration -f $env:TargetFramework
 
     - name: 'Zip files'
       run: 7z a ${{ env.ProjectName }}.${{ env.Configuration }}.${{ env.TargetFramework }}.zip -r .\${{ env.ProjectDirectory }}\bin\${{ env.Configuration }}\${{ env.TargetFramework }}\*
